@@ -1,11 +1,8 @@
 <?php
-    error_reporting(E_ALL);
-    ini_set('display_errors', '1');
     
-    #Conexion a la base de datos
     function conexion(){
-        return $pdo = new PDO('mysql:host=localhost;dbname=inventaro','mie','2605');
-        #return $pdo;
+        $pdo = new PDO('mysql:host=localhost;dbname=inventario','root','');
+        return $pdo;
     }
 
     /**Prueba de que esta agregando datos en BD */
@@ -18,7 +15,7 @@
         }else{
             return true;
         }
-    }
+    }   
 
     /*Prueba verificar datos
     $nombre="Carlos7";
@@ -34,6 +31,33 @@
     function limpiar_cadena($cadena){
         $cadena=trim($cadena); /** Quitamos los espacios en blanco */
         $cadena=stripslashes($cadena); /** quita las barras agregadas \ */
-        $cadena=str_ireplace($cadena); /** remplazar un texto mediante una busqueda \ */
-
+        $cadena=str_ireplace("<script>","",$cadena); /** remplazar un texto mediante una busqueda \ */
+        $cadena=str_ireplace("</script>","",$cadena); /** remplazar un texto mediante una busqueda \ */
+        $cadena=str_ireplace("<script src>","",$cadena); /** remplazar un texto mediante una busqueda \ */
+        $cadena=str_ireplace("<script type=>","",$cadena); /** remplazar un texto mediante una busqueda \ */
+        $cadena=str_ireplace("SELECT * FROM","",$cadena); /** remplazar un texto mediante una busqueda \ */
+        $cadena=str_ireplace("DELETE FROM","",$cadena); /** remplazar un texto mediante una busqueda \ */
+        $cadena=str_ireplace("INSERT INTO","",$cadena); /** remplazar un texto mediante una busqueda \ */
+        $cadena=str_ireplace("DROP TABLE","",$cadena); /** remplazar un texto mediante una busqueda \ */
+        $cadena=str_ireplace("DROP DATABASE","",$cadena); /** remplazar un texto mediante una busqueda \ */
+        $cadena=str_ireplace("TRUNCATE TABLE","",$cadena); /** remplazar un texto mediante una busqueda \ */
+        $cadena=str_ireplace("SHOW TABLE","",$cadena); /** remplazar un texto mediante una busqueda \ */
+        $cadena=str_ireplace("SHOW DATABASES","",$cadena); /** remplazar un texto mediante una busqueda \ */
+        $cadena=str_ireplace("<?php","",$cadena); /** remplazar un texto mediante una busqueda \ */
+        $cadena=str_ireplace("?>","",$cadena); /** remplazar un texto mediante una busqueda \ */
+        $cadena=str_ireplace("--","",$cadena); /** remplazar un texto mediante una busqueda \ */
+        $cadena=str_ireplace("^","",$cadena); /** remplazar un texto mediante una busqueda \ */
+        $cadena=str_ireplace("<","",$cadena); /** remplazar un texto mediante una busqueda \ */
+        $cadena=str_ireplace("[","",$cadena); /** remplazar un texto mediante una busqueda \ */
+        $cadena=str_ireplace("]","",$cadena); /** remplazar un texto mediante una busqueda \ */
+        $cadena=str_ireplace("==","",$cadena); /** remplazar un texto mediante una busqueda \ */
+        $cadena=str_ireplace(";","",$cadena); /** remplazar un texto mediante una busqueda \ */
+        $cadena=str_ireplace("::","",$cadena); /** remplazar un texto mediante una busqueda \ */
+        $cadena=trim($cadena);
+        $cadena=stripslashes($cadena);
+        return $cadena;
     }
+
+    $texto = "<script>Hola mundo<script>";
+    echo limpiar_cadena($texto);
+?>
