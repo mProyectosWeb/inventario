@@ -13,7 +13,7 @@
 
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-            <a class="navbar-item" href="https://bulma.io">
+            <a class="navbar-item" href="index.php?views=home">
                 <img src="./img/logo.png" width="90" height="35">
             </a>
 
@@ -37,9 +37,9 @@
                 <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link">Usuarios</a>
                     <div class="navbar-dropdown">
-                        <a class="navbar-item">Nuevo</a>
-                        <a class="navbar-item">Listar</a>
-                        <a class="navbar-item">Buscar</a>
+                        <a href="index.php?views=user_new" class="navbar-item">Nuevo</a>
+                        <a href="index.php?views=user_list" class="navbar-item">Listar</a>
+                        <a href="index.php?views=user_search" class="navbar-item">Buscar</a>
                     </div>
                 </div>
 
