@@ -10,6 +10,7 @@ function enviar_formulario_ajax(e){
         let data= new FormData(this);
         let method=this.getAttribute("method");
         let action=this.getAttribute("action");
+        let formulario = this;
 
         let encabezados= new Headers();
 
@@ -26,6 +27,7 @@ function enviar_formulario_ajax(e){
         .then(respuesta =>{ 
             let contenedor=document.querySelector(".form-rest");
             contenedor.innerHTML = respuesta;
+            formulario.reset();
         });
     }
 

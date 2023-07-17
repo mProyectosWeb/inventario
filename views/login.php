@@ -1,16 +1,3 @@
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Sistema de inventario</title>
-	<link rel="stylesheet" href="./css/bulma.min.css">
-	<link rel="stylesheet" href="./css/styles.css">
-</head>
-
-<body>
-
 	<div class="main-container">
 
 		<form class="box login" action="" method="POST" autocomplete="off">
@@ -33,10 +20,11 @@
 			<p class="has-text-centered mb-4 mt-3">
 				<button type="submit" class="button is-info is-rounded">Iniciar sesion</button>
 			</p>
+			<?php
+			if (isset($_POST['login_usuario']) && isset($_POST['login_clave'])) {
+				require_once "./php/main.php";
+				require_once "./php/login.php";
+			}
+			?>
 		</form>
 	</div>
-	<script src="./js/app.js"></script>
-	<script src="./js/ajax.php"></script>
-</body>
-
-</html>
