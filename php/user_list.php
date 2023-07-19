@@ -91,9 +91,11 @@ $tabla .= '
 if ($total >= 1 && $pagina <= $Npaginas) {
     $tabla .= '<p class="has-text-right">Mostrando usuarios <strong>' . $pag_inicio . '</strong> al <strong>' . $pag_final . '</strong>de un <strong>total de ' . $total . '</strong></p>';
 }
-if ($total >= 1 && $pagina <= $Npaginas) {
-    echo paginado_table($pagina, $Npaginas, $url, $botones);
-}
-
 $conexion = null;
 echo $tabla;
+
+if ($total >= 1 && $pagina <= $Npaginas) {
+    echo paginado_table($pagina, $Npaginas, $url, 5);
+}
+
+

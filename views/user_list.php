@@ -17,7 +17,7 @@
         }
         
         $pagina=limpiar_cadena($pagina);
-        $url="index.php?vista=user_list&page=";
+        $url="index.php?views=user_list&page=";
         $registro=15;
         $busqueda="";
 
